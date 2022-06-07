@@ -3,16 +3,6 @@ import React, { useState } from 'react';
 // import Home from "./components/home";
 import LoginForm from "./components/LoginForm";
 
-// class App extends Component {
-//   render() { 
-//     return (
-//       <main>
-//         <Home />     
-//       </main>
-//     );
-//   }
-// }
-
 function App (){
   const adminUser = {
     email: "admin@admin.com",
@@ -34,14 +24,14 @@ function App (){
     } else{
       setError("Details do not match");
     }
-  }
+  } 
 
   const Logout = () => {
     setUser({name: "", email: ""})    // Return user to the original state;
   }
-
+  
   return ( 
-    <div className='App'>
+    <div className='App'>   
         {(user.email !== "") ? (
           <div className="welcome">
             <h2>Welcome, <span>{user.name}</span></h2>
