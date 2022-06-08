@@ -1,11 +1,95 @@
-/* #home img{
-  width: 50px;
-  height: 50px;
-}
-#home{
-  background-color: red;
-}
+@media screen and (max-width: 720px) {
+  #home{
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+  }
 
-main{
-  background-color: red;
-} */
+  #home div{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgb(234, 214, 104);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #home img{
+    width: 250px;
+    height: 200px;
+  }
+
+  #home h2, #home p{
+    width: 400px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  #home h2{
+    font-size: 24px;
+    margin: 20px 0;
+    font-weight: 800;
+  }
+
+  #home p{
+    font-size: 16px;
+    opacity: 0.55;
+  }
+  #home button{
+    background-color: lightseagreen;
+    color: white;
+    font-weight: 400;
+    width: 30%;
+    padding: 10px 0;
+  }
+
+  /* REGISTRATION FORM */
+
+  .form-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form{
+    width: 90%;
+    background: url(./images/todo-7.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  form div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  form input{
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    border-radius: 5px;
+    border: 0.1rem gray solid;
+  }
+
+  ::placeholder{
+    opacity: 0.4;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  input:focus{
+    /* color: red; */
+    opacity: 0.8;
+  }
+
+  
+
+}
