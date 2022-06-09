@@ -11,6 +11,7 @@ const RegistrationForm = ( {handleSubmit, getUpdatedDetails} ) => {
     <section className="container-lg form-container">
       <form onSubmit={handleSubmit} id="form">
         <h2>Hello, sign up to get started</h2>
+        <div></div>
         <div className="mb-3">
           <label className="form-label" htmlFor="name">Name</label>
           <input className="" type="name" id="name" name="name" onChange={e => setDetails({...details, name: e.target.value})} value={details.name} placeholder="John Doe"/>

@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import RegistrationForm from "./components/RegistrationForm";
 import Welcome from "./components/Welcome";
 import Task from "./components/Task";
+import NewTask from "./components/NewTask";
 import "./App.css";
+
 
 function App(){
   const [getStarted, setGetStarted] = useState(false);

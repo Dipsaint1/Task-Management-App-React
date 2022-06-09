@@ -11,18 +11,18 @@
   }
 
   #home div{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    background-color: rgb(234, 214, 104);
+    background-color: rgb(239, 217, 91);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   #home img{
-    width: 250px;
-    height: 200px;
+    width: 200px;
+    height: 180px;
   }
 
   #home h2, #home p{
@@ -86,10 +86,98 @@
   }
 
   input:focus{
-    /* color: red; */
     opacity: 0.8;
   }
 
-  
+  #task{
+    padding: 30px 10px;
+    background-image: linear-gradient(rgba(239, 217, 91, 0.7) 50%, #fff 50%) ;
+    min-height: 100vh;
+  }
 
+  #task .menu-bar{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #task .bar{
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    margin: 2px 0;
+    cursor: pointer;
+  }
+
+  .profile{
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-details{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    justify-content: space-between;
+    flex-basis: 70%;
+  }
+
+  .profile-details h4, .profile-details p{
+    display: center;
+    margin: auto 0;
+    padding: 5px 0;
+  }
+
+  .profile-details h4 strong{
+    font-size: 2rem;
+    padding-left: 4px;
+    color: lightseagreen;
+    font-family: 'Satisfy', cursive;
+  }
+
+  .profile-img-container{
+    text-align: end;
+    flex-basis: 30%;
+    display: flex;
+  }
+  .profile-img-inner-container{
+    margin-left: auto;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 50%;
+    background-color: lightseagreen;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .profile-img-container i{
+    font-size: 40px;
+    color: white;
+  }
+
+  .task-list{
+    background-color: red;
+    min-height: 20vh;
+  }
+
+  .new-task{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background-color: lightseagreen;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .new-task i{
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
 }
