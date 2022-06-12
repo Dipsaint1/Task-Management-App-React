@@ -58,7 +58,7 @@
     justify-content: center;
   }
 
-  form{
+  .form-container form{
     width: 90%;
     background: url(./images/todo-7.jpg);
     background-position: center;
@@ -66,12 +66,12 @@
     background-repeat: no-repeat;
   }
 
-  form div{
+  .form-container form div{
     display: flex;
     flex-direction: column;
   }
 
-  form input{
+  .form-container form input{
     padding: 10px;
     font-size: 15px;
     outline: none;
@@ -85,12 +85,9 @@
     font-size: 14px;
   }
 
-  input:focus{
-    opacity: 0.8;
-  }
 
   #task{
-    padding: 30px 10px;
+    padding: 20px 10px;
     background-image: linear-gradient(rgba(239, 217, 91, 0.7) 50%, #fff 50%) ;
     min-height: 100vh;
   }
@@ -179,5 +176,33 @@
     font-size: 1.5rem;
     cursor: pointer;
     font-weight: bold;
+  }
+  .task-input form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .task-input form input{
+    width: 100%;
+    border: none;
+    height: 35px;
+    padding: 0 5px;
+    margin: 3px 0;
+    outline: none;
+    color: rgb(0, 0, 0);
+  }
+  .task-input form input:focus-within{
+    background-color: white;
+  }
+
+  .task-input .submit{
+    width: 100%;
+    background-color: lightseagreen;
+    color: white;
+    margin: 3px 0;
+  }
+  .task-input .submit:hover{
+    color: white;
   }
 }

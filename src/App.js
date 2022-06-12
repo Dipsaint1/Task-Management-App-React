@@ -2,16 +2,15 @@ import React, {useState} from 'react';
 import RegistrationForm from "./components/RegistrationForm";
 import Welcome from "./components/Welcome";
 import Task from "./components/Task";
-import NewTask from "./components/NewTask";
 import "./App.css";
 
 
 function App(){
-  const [getStarted, setGetStarted] = useState(false);
+  const [getStarted, setGetStarted] = useState(true);
   const [welcome, setWelcome] = useState(false);
   const [formSubmit, setFormSubmit] = useState(true);
   const [details, setDetails] = useState({name : "", email: ""});
-
+  
   const handleGetStarted = () =>{
     setGetStarted(!getStarted);
     setWelcome(!welcome);
@@ -32,9 +31,9 @@ function App(){
 
   return(
     <div className="App">
-      {formSubmit ? <RegistrationForm handleSubmit={handleSubmit} getUpdatedDetails={handleUpdatedDetails} /> : null}
-      {welcome ? <Welcome name={details.name} handleGetStarted={handleGetStarted} /> : null}
-      {getStarted ? <Task/> : null}
+      {/* {formSubmit ? <RegistrationForm handleSubmit={handleSubmit} getUpdatedDetails={handleUpdatedDetails} /> : null} */}
+      {/* {welcome ? <Welcome name={details.name} handleGetStarted={handleGetStarted} /> : null} */}
+      {getStarted ? <Task /> : null}
     </div>
   );
 }
