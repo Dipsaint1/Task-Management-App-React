@@ -1,29 +1,32 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
+import LoadTasks from "./utils/LoadTasks";
+import nextId from "react-id-generator";
 
+function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextCategory, tasks, setTasks}){
+  const nextIdx = nextId();
 
-function Task(){
   const [addTaskInput, setAddTaskInput] = useState(false);
-  const [tasks, setTasks] = useState([]);
-  const [formInfo, setFormInfo] = useState("");
-  const form = useRef();
 
   function handleAddTask(){
     setAddTaskInput(true);
   }
 
-  function handleSubmit(e){
+  const infoTextHandler = (e) => {
+    setInputTextInfo(e.target.value);
+  } 
+
+  const categoryTextHandler = (e) => {  
+    setInputTextCategory(e.target.value);
+  }
+
+  const handleTaskSubmit = (e) => {
     e.preventDefault();
-    const info = form.current.info.value;
-    const category = form.current.category.value;
-    setFormInfo({info, category});
-    const _tasks = [...tasks];
-    _tasks.push(formInfo);
-    setTasks(_tasks);
+    setTasks([...tasks, {info : inputTextInfo, category: inputTextCategory , id: nextIdx}]);
+    setInputTextCategory("");
+    setInputTextInfo("");
     setAddTaskInput(false);
   }
 
-  console.log(tasks);
-  
   return ( 
     <section id='task'>
       <div className="container-lg">
@@ -35,8 +38,8 @@ function Task(){
         
         <div className="profile">
           <div className='profile-details'>
-            <h4>Hello, <strong>Akindele</strong></h4>
-            {tasks.length === 1 ? <p>You have {tasks.length} task</p> : <p>You have {tasks.length} tasks</p> }
+            <h4>Hello, <strong>Oladapo</strong></h4>
+            {tasks.length < 2 ? <p>You have {tasks.length} task</p> : <p>You have {tasks.length} tasks</p> }
           </div>
 
           <div className="profile-img-container">
@@ -49,17 +52,23 @@ function Task(){
 
       <div className="task-input">
         {addTaskInput ? 
-        <form ref={form} onSubmit={handleSubmit}>
-          <input type="info" name='info' aria-label="info" placeholder='e.g I want to visit my uncle in Canada' />
-          <input type="category" name='category' aria-label="category" placeholder='e.g (Vacation, Examination)' />
-          <input className="btn submit" type="submit" value="Add Task" aria-label="category" />
+        <form onSubmit={handleTaskSubmit}>
+          <input value={inputTextInfo} onChange={infoTextHandler} type="info" name='info' aria-label="info" placeholder='e.g I want to visit my uncle in Canada' />
+          <input value={inputTextCategory} onChange={categoryTextHandler} type="category" name='category' aria-label="category" placeholder='e.g (Vacation, Examination)' />
+          <input className="btn submit" type="submit" value="Add Task" aria-label="submit" />
         </form> 
         : null}
       </div>
 
-
-      <div className="tasks-list" id='tasks-list'>
-        {tasks.map((task) => }
+      <div className="tasks-list container-fluid" id='tasks-list'>
+        {tasks.map(task => (
+          <LoadTasks
+            delete
+            key={task.id}
+            info={task.info}
+            category={task.category}
+          />
+        ))}
       </div> 
 
       <span className="new-task">
