@@ -1,18 +1,14 @@
 import React from 'react';
-import nextId from "react-id-generator";
 
-
-
-const Form = ({setInputText, todos, setTodos, inputText}) => {
-  const nextIdx = nextId();
-
+const Form = ({setInputText, todos, setTodos, inputText, id}) => {
+  
   const inputTextHandler = (e) => {
-    setInputText(e.target.value)
+      setInputText(e.target.value)
   } 
 
   const submitTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([...todos, {text: inputText, completed: false, id: nextIdx}]);
+    setTodos([...todos, {text: inputText, completed: false, id: id}]);
     setInputText("");
   }
 

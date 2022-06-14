@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import "./AppTodo.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
+import nextId from "react-id-generator";
 
 function App(){
+  const nextIdx = nextId();
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
-
 
   return(
     <div className="App">
@@ -18,8 +19,12 @@ function App(){
         setInputText={setInputText} 
         todos={todos}
         setTodos={setTodos}
+        id={nextIdx}
       />
-      <TodoList />
+      <TodoList 
+        todos={todos}
+        setTodos = {setTodos}
+      />
     </div>
   );
 }
