@@ -62,10 +62,12 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
       <div className="tasks-list container-fluid" id='tasks-list'>
         {tasks.map(task => (
           <LoadTasks
-            delete
+            task={task}
             key={task.id}
             info={task.info}
             category={task.category}
+            tasks={tasks}
+            setTasks={setTasks}
           />
         ))}
       </div> 

@@ -6,7 +6,7 @@ import "./App.css";
 
 
 function App(){
-  const [getStarted, setGetStarted] = useState(false);
+  const [getStarted, setGetStarted] = useState(true);
   const [welcome, setWelcome] = useState(false);
   const [formSubmit, setFormSubmit] = useState(true);
   const [details, setDetails] = useState({name : "", email: ""});
@@ -27,8 +27,8 @@ function App(){
 
   return(
     <div className="App">
-      {formSubmit ? <RegistrationForm handleSubmit={handleSubmit} details={details} setDetails={setDetails} /> : null}
-      {welcome ? <Welcome name={details.name} handleGetStarted={handleGetStarted} /> : null}
+      {/* {formSubmit ? <RegistrationForm handleSubmit={handleSubmit} details={details} setDetails={setDetails} /> : null} */}
+      {/* {welcome ? <Welcome name={details.name} handleGetStarted={handleGetStarted} /> : null} */}
       {getStarted ? 
         <Task  
           inputTextInfo={inputTextInfo}
