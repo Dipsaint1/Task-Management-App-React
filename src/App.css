@@ -248,6 +248,7 @@
 
   .delete-task, .edit-task{
     padding: 5px;
+    cursor: pointer;
     /* color: white; */
   }
 }

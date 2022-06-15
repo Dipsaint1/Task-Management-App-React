@@ -1,8 +1,7 @@
 import React from 'react';
 
 
-
-const LoadTasks = ({info, category, task, tasks, setTasks}) => {
+const LoadTasks = ({info, category, task, tasks, setTasks, setAddTaskInput, addTaskInput}) => {
   const deleteHandler = (task) => {
     const __tasks = [...tasks];
     setTasks(__tasks.filter(item => item.id !== task.id));
@@ -12,6 +11,7 @@ const LoadTasks = ({info, category, task, tasks, setTasks}) => {
     const __tasks = [...tasks];
     const __taskToEdit = __tasks.filter(item => item.id === task.id);
     console.log(__taskToEdit);
+    setAddTaskInput(true)
   }
 
   return ( 

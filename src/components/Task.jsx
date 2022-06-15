@@ -1,14 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import LoadTasks from "./utils/LoadTasks";
 import nextId from "react-id-generator";
 
-function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextCategory, tasks, setTasks, details, setDetails}){
+function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextCategory, tasks, setTasks, details, addTaskInput, setAddTaskInput}){
   const nextIdx = nextId();
-  const [addTaskInput, setAddTaskInput] = useState(false);
-
-  function handleAddTask(){
-    setAddTaskInput(true);
-  }
 
   const infoTextHandler = (e) => {
     setInputTextInfo(e.target.value);
@@ -24,6 +19,10 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
     setInputTextCategory("");
     setInputTextInfo("");
     setAddTaskInput(false);
+  }
+
+  function handleAddTask(){
+    setAddTaskInput(!addTaskInput);
   }
 
   return ( 
@@ -68,6 +67,8 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
             category={task.category}
             tasks={tasks}
             setTasks={setTasks}
+            setAddTaskInput={setAddTaskInput}
+            addTaskInput={addTaskInput}
           />
         ))}
       </div> 
@@ -78,5 +79,5 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
     </section>
   );
 }
- 
+
 export default Task; 

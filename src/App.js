@@ -13,6 +13,7 @@ function App(){
   const [inputTextInfo, setInputTextInfo] = useState("");
   const [inputTextCategory, setInputTextCategory] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [addTaskInput, setAddTaskInput] = useState(false);
 
   const handleGetStarted = () =>{
     setGetStarted(!getStarted);
@@ -24,6 +25,7 @@ function App(){
     setWelcome(!welcome);
     setFormSubmit(!formSubmit);
   }
+
 
   return(
     <div className="App">
@@ -38,6 +40,8 @@ function App(){
           tasks={tasks}
           setTasks={setTasks}
           details={details}
+          addTaskInput={addTaskInput}
+          setAddTaskInput={setAddTaskInput}
         /> 
         : null
       }
