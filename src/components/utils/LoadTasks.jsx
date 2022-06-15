@@ -1,6 +1,12 @@
 import React from 'react';
 
+
+
 const LoadTasks = ({info, category}) => {
+  const handleDelete = (task) => {
+    console.log(task);
+  }
+
   return ( 
     <div className="task-box-container">
       <div className="task-box-details">

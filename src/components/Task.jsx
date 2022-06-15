@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import LoadTasks from "./utils/LoadTasks";
 import nextId from "react-id-generator";
 
-function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextCategory, tasks, setTasks}){
+function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextCategory, tasks, setTasks, details, setDetails}){
   const nextIdx = nextId();
-
   const [addTaskInput, setAddTaskInput] = useState(false);
 
   function handleAddTask(){
@@ -38,7 +37,7 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
         
         <div className="profile">
           <div className='profile-details'>
-            <h4>Hello, <strong>Oladapo</strong></h4>
+            <h4>Hello, <strong>{details.name}</strong></h4>
             {tasks.length < 2 ? <p>You have {tasks.length} task</p> : <p>You have {tasks.length} tasks</p> }
           </div>
 

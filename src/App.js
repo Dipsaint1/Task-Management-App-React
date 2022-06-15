@@ -6,7 +6,7 @@ import "./App.css";
 
 
 function App(){
-  const [getStarted, setGetStarted] = useState(true);
+  const [getStarted, setGetStarted] = useState(false);
   const [welcome, setWelcome] = useState(false);
   const [formSubmit, setFormSubmit] = useState(true);
   const [details, setDetails] = useState({name : "", email: ""});
@@ -14,8 +14,6 @@ function App(){
   const [inputTextCategory, setInputTextCategory] = useState("");
   const [tasks, setTasks] = useState([]);
 
-
-  
   const handleGetStarted = () =>{
     setGetStarted(!getStarted);
     setWelcome(!welcome);
@@ -27,17 +25,10 @@ function App(){
     setFormSubmit(!formSubmit);
   }
 
-  const handleUpdatedDetails = details => {
-    setDetails({
-      name: details.name,
-      email: details.email
-    })
-  }
-
   return(
     <div className="App">
-      {/* {formSubmit ? <RegistrationForm handleSubmit={handleSubmit} getUpdatedDetails={handleUpdatedDetails} /> : null} */}
-      {/* {welcome ? <Welcome name={details.name} handleGetStarted={handleGetStarted} /> : null} */}
+      {formSubmit ? <RegistrationForm handleSubmit={handleSubmit} details={details} setDetails={setDetails} /> : null}
+      {welcome ? <Welcome name={details.name} handleGetStarted={handleGetStarted} /> : null}
       {getStarted ? 
         <Task  
           inputTextInfo={inputTextInfo}
@@ -46,11 +37,12 @@ function App(){
           setInputTextCategory={setInputTextCategory}
           tasks={tasks}
           setTasks={setTasks}
+          details={details}
         /> 
         : null
       }
     </div>
   );
 }
- 
+
 export default App;

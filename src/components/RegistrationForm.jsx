@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const RegistrationForm = ( {handleSubmit, getUpdatedDetails} ) => {
-  const [details, setDetails] = useState({name: "", email: "", password: ""});    // Set initial values for details;
-
-  const getDetails =() => {
-    getUpdatedDetails(details);
-  }
+const RegistrationForm = ( {handleSubmit, details, setDetails} ) => {
 
   return ( 
     <section className="container-lg form-container">
@@ -24,7 +19,7 @@ const RegistrationForm = ( {handleSubmit, getUpdatedDetails} ) => {
           <label className="form-label" htmlFor="password">Password</label>
           <input className="" type="text" id="password" name='password' required onChange={e => setDetails({...details, password: e.target.value})} value={details.value} placeholder="*********"/>
         </div>
-        <input onClick={getDetails} className="form-control btn btn-md bg-info" type="submit" value="REGISTER" aria-label="example"/>
+        <input className="form-control btn btn-md bg-info" type="submit" value="REGISTER" aria-label="example"/>
       </form>
     </section>
    );
