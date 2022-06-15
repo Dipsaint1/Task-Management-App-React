@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
-const LoadTasks = ({info, category, task, tasks, setTasks, setAddTaskInput, addTaskInput}) => {
+const LoadTasks = ({info, category, task, tasks, setTasks, setAddTaskInput, addTaskInput, inputTextInfo}) => {
+  const [data, setData] = useState({info: "", category: "", id: ""});
+  
   const deleteHandler = (task) => {
     const __tasks = [...tasks];
     setTasks(__tasks.filter(item => item.id !== task.id));
@@ -10,8 +12,10 @@ const LoadTasks = ({info, category, task, tasks, setTasks, setAddTaskInput, addT
   const editHandler = (task) => {
     const __tasks = [...tasks];
     const __taskToEdit = __tasks.filter(item => item.id === task.id);
-    console.log(__taskToEdit);
-    setAddTaskInput(true)
+    console.log(__taskToEdit[0]);
+    setData([...__taskToEdit, {info: __taskToEdit[0].info}]);
+    console.log(data);
+    setAddTaskInput(!addTaskInput);
   }
 
   return ( 

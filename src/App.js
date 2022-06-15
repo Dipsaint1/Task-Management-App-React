@@ -11,6 +11,7 @@ function App(){
   const [formSubmit, setFormSubmit] = useState(true);
   const [details, setDetails] = useState({name : "", email: ""});
   const [inputTextInfo, setInputTextInfo] = useState("");
+  
   const [inputTextCategory, setInputTextCategory] = useState("");
   const [tasks, setTasks] = useState([]);
   const [addTaskInput, setAddTaskInput] = useState(false);

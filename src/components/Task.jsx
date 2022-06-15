@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import LoadTasks from "./utils/LoadTasks";
+import TaskForm from "./utils/TaskForm";
+
 import nextId from "react-id-generator";
 
 function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextCategory, tasks, setTasks, details, addTaskInput, setAddTaskInput}){
   const nextIdx = nextId();
+  const [onEdit, setOnEdit] = useState(false);
+
 
   const infoTextHandler = (e) => {
     setInputTextInfo(e.target.value);
@@ -49,13 +53,14 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
       </div>
 
       <div className="task-input">
+        {onEdit ? <TaskForm />
+          : null
+        }
+
         {addTaskInput ? 
-        <form onSubmit={handleTaskSubmit}>
-          <input value={inputTextInfo} onChange={infoTextHandler} type="info" name='info' aria-label="info" placeholder='e.g I want to visit my uncle in Canada' />
-          <input value={inputTextCategory} onChange={categoryTextHandler} type="category" name='category' aria-label="category" placeholder='e.g (Vacation, Examination)' />
-          <input className="btn submit" type="submit" value="Add Task" aria-label="submit" />
-        </form> 
-        : null}
+          <TaskForm inputTextInfo={inputTextInfo} infoTextHandler={infoTextHandler} inputTextCategory={inputTextCategory} categoryTextHandler={categoryTextHandler} handleTaskSubmit={handleTaskSubmit} />
+          : null
+        }
       </div>
 
       <div className="tasks-list container-fluid" id='tasks-list'>
@@ -69,6 +74,9 @@ function Task({inputTextInfo, inputTextCategory, setInputTextInfo, setInputTextC
             setTasks={setTasks}
             setAddTaskInput={setAddTaskInput}
             addTaskInput={addTaskInput}
+            inputTextInfo={inputTextInfo}
+            setInputTextInfo={setInputTextInfo}
+
           />
         ))}
       </div> 
